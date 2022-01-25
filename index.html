@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="app"
+      class="min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-0 lg:px-8"
+    >
+      <div class="relative max-w-md w-full">
+        <h2 class="text-4xl text-center mb-6">2022 尾牙賓果</h2>
+        <div class="space-y-2 mb-6">
+          <p>規則：</p>
+          <p>1. 由以下清單中挑選 25 個分館隨機填入賓果紙中</p>
+          <p>
+            2. 由主持人依序抽出分館名稱，優先取得 5 條連線者獲勝（只取一名）
+          </p>
+          <p>3. 若同時多名連線 5 條者，則繼續唱名直到優先連線者出現</p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-1">
+          <template v-for="location in locations">
+            <div
+              class="flex flex-wrap items-center border rounded p-6"
+              :class="location.checked && 'bg-gray-200'"
+              @click="checkLocation(location.title)"
+            >
+              <img
+                class="w-10 h-10 rounded-full mx-auto mb-3"
+                :src="location.image"
+              />
+              <p class="w-full text-center">{{location.title}}</p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="./app.js"></script>
+</html>
